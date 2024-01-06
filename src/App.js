@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import PayPalBtns from './Components/PayPalBtns';
+import Checkout from './Components/Checkout';
+import NewNavbar from './Components/NewNavbar';
+import Products from './Components/Products';
+import Footer from './Components/Footer';
+import {BrowserRouter as Router } from 'react-router-dom';
+import Routte from './Components/Routte';
 
-function App() {
+const App = () => {
+  const [cartItem, setCartItem]= useState([]);
+const addtocart =(prod) => {
+const exsit =cartItem.find((x) =>{
+  return x.id === prod.id;
+})
+if (exsit) {
+  alert("This Product has Already been Added to Cart")
+}else{
+  setCartItem([...cartItem, {...prod, quantity:1}])
+}
+console.log(setCartItem)
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+    <NewNavbar/>
+    <Routte addtocart={addtocart} cartItem={cartItem} setCartItem={setCartItem} />
+      <Footer/>
+    </Router>
+    
+
+    </>
   );
 }
 
