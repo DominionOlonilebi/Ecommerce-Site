@@ -1,51 +1,62 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { PayPalButtons } from '@paypal/react-paypal-js';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
-import React from 'react';
-import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
+const PayPalBtns = ({ item, total }) => {
+  const [palP, setPalP] = useState(false);
+  const [error, setError] = useState(null);
+  const paypalRef = useRef();
 
-const PayPalBtns = () => {
-  const createOrder = (data, actions) => {
-    // Replace 'YOUR_ORDER_ID' with your actual order ID
-    
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            currency_code: 'USD', // Change to your currency code
-            value: 10.00, // Change to your order total
-          },
+  useEffect(() => {
+    window.paypal
+      .Buttons({
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            intent: 'CAPTURE',
+            purchase_units: [
+              {
+                description: 'Shoe store checkout',
+                amount: {
+                  currency_code: 'USD',
+                  value: total.toFixed(2),
+                },
+              },
+            ],
+          });
         },
-      ],
-    });
-  };
+        onApprove: async (data, actions) => {
+          const order = await actions.order.capture();
+          setPalP(true);
+          console.log(order);
+        },
+        onError: (err) => {
+          setError(err);
+          console.error(err);
+        },
+      })
+      .render(paypalRef.current);
+  }, [item, total]);
 
-  const onApprove = (data, actions) => {
-    // Capture the funds from the transaction
-    return actions.order.capture().then((details) => {
-      // Handle the successful payment
-      console.log('Payment completed:', details);
-    });
-  };
+  if (palP) {
+    return <div>Thanks for making the purchase</div>;
+  }
 
-  const onError = (err) => {
-    // Handle errors that occur during the transaction
-    console.error('Error during PayPal checkout:', err);
-  };
-
-
+  if (error) {
+    return <div>Error in processing payment. Please try again</div>;
+  }
 
   return (
-    <PayPalScriptProvider>
-    <PayPalButtons
-      createOrder={createOrder}
-      onApprove={onApprove}
-      onError={onError}
-      style={{
-        color: 'gold',
-        shape: 'pill',
-        height: 40,
-      }}
-    />
-    </PayPalScriptProvider>
+    <div>
+      <ListGroup>
+        {item.map((item, index) => (
+          <ListGroupItem key={index}>
+            {item.name} - ${item.value ? item.value.toFixed(2) : 'N/A'}
+          </ListGroupItem>
+        ))}
+        <div>Total: ${total.toFixed(2)}</div>
+        <div ref={paypalRef}></div>
+      </ListGroup>
+    </div>
   );
 };
 

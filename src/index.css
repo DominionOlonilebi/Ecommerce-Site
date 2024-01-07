@@ -4,12 +4,13 @@
   box-sizing: border-box;
 }
 .header{
-  padding: 20px 30px;
+  padding: 15px 25px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 18px;
-  background-color: rgb(241, 240, 240);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 10px;
+  background-color: #fff;
+  margin-top: 0px;
 }
 .header .brand{
 cursor: pointer;
@@ -19,22 +20,14 @@ margin-top: 10px;
 .header .brand span{
   color: rgb(230, 3, 3);
 }
-.header .nav ul{
-  display: flex;
 
-}
-.header .nav ul li{
+.navs .nav-link{
   margin-right: 20px;
   font-size: 18px;
   margin-top: 10px;
-  text-decoration: none;
-  list-style: none;
-}
-.header .nav ul li .link{
-  text-decoration: none;
   color:black;
 }
-.header .nav ul li .link:hover{
+.navs .nav-link:hover{
   color: rgb(230, 3, 3);
 }
 .cards{
@@ -114,7 +107,7 @@ font-size: 20px;
 }
 .abt h1{
   text-align: center;
-  margin-top: 10%;
+  margin-top: 7%;
   margin-bottom: 2%;
 }
 
@@ -276,14 +269,14 @@ cursor: pointer;
 margin-top: 5px;
 }
 .check{
-  margin-left: 20%;
+  margin-left: 22%;
   margin-top: 5%;
-  margin-bottom: 30%;
+  margin-bottom: 25%;
 }
 .cart_total_price{
   margin-left: 47%;
   font-size: 18px;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .forms{
@@ -329,7 +322,7 @@ padding-bottom: 5px;
 }
 .form_container h1{
   text-align: center;
-  margin-top: 10%;
+  margin-top: 7%;
 }
 .form_container .contact{
   margin-bottom: 5%;
