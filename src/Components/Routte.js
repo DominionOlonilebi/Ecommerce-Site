@@ -11,7 +11,7 @@ const Routte = ( {addtocart, cartItem, setCartItem}) => {
   return (
     <>
         <Routes>
-          <Route path='/home' element={<Home/>}/>
+          <Route path='/' element={<Home/>}/>
         <Route path='/prod' element={<Prod addtocart={addtocart}/>}/>
         <Route path='/cart' element={<Cart addtocart={addtocart} cartItem={cartItem} setCartItem={setCartItem} />}/>
         <Route path='/about' element={<About/>}/>

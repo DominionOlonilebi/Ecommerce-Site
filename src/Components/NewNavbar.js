@@ -14,7 +14,7 @@ const NewNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto offset-7 navs">
-            <Link to="/home" className='nav-link'>Home</Link>
+            <Link to="/" className='nav-link'>Home</Link>
             <Link to="/prod" className='nav-link'>Products</Link>
             <Link to="/cart" className='nav-link'>Cart</Link>
             <Link to="/about" className='nav-link'>About</Link>
