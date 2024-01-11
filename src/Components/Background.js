@@ -7,9 +7,9 @@ const Background = () => {
   return (
     <div>
         <Container fluid className='forms'>
-            <Col md={3} >
+            <Col md={3} sm={12}>
             <Form>
-        <InputGroup className="formss">
+        <InputGroup className="formss py-4">
         <Form.Control
           placeholder="Search for Products"
           aria-label="Search for Products"
@@ -24,7 +24,7 @@ const Background = () => {
         </Container>
       <Container fluid>
         <Row className='category'>
-            <Col md={3} className='ms-5'>
+            <Col md={3} sm={12} className='ms-5'>
             <Card className='cards' style={{ width: '20rem' }}>
       <Card.Header className='category_header py-3 text-white'><a href='/prod'>Product Categories</a> </Card.Header>
     <ListGroup>
@@ -47,7 +47,7 @@ const Background = () => {
     </Card>
             </Col>
 
-            <Col md={8} >
+            <Col md={8} sm={12} >
 <div className='get'>
                 <h1>It's Yours... Grab it Now!</h1>
                 <h2>BRAND NEW SHOES</h2>
