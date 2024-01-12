@@ -103,7 +103,7 @@ font-size: 20px;
   line-height: 40px;
 }
 .abt{
-  margin-bottom: 30%;
+  margin-bottom: 40%;
   line-height: 30px;
 }
 .abt h1{
@@ -127,22 +127,20 @@ justify-content: space-between;
 flex-wrap: wrap;
 }
 .prod-container .my-prod .box{
-  width: 290px;
-  height: 380px;
+
   background: rgb(212, 212, 212);
   margin-top: 20px;
   overflow: hidden;
-  padding: 10px 20px;
+  padding: 10px 10px;
   cursor: pointer;
   margin-bottom: 20px;
 }
 .myproduct{
   margin-bottom: 30%;
 }
-.prod-container .my-prod .box .img-box{
-  height: 250px;
-  width: 350px;
-  size: cover;
+.prod-container .my-prod .box .img-fluid{
+  height: 190px;
+  width: 220px;
 }
 .prod-container .my-prod .box .detail h5{
 margin-top: -30px;
@@ -153,6 +151,11 @@ font-size: 16px;
 .prod-container .my-prod .box .detail .details{
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
+}
+.prod-container .my-prod .box .detail{
+  margin-top: 10px;
+  padding-bottom: 30px;
 }
 .prod-container .my-prod .box .detail h3{
 margin-top: 8px;
@@ -177,10 +180,10 @@ font-weight: 600;
 }
 .null{
   margin-top: 17%;
-  margin-left: 33%;
+  text-align: center;
 }
 .nowshop{
-  margin-left: 47%;
+  margin-left: 40%;
 margin-top: 30px;
 padding: 10px 30px;
 background-color: rgb(230, 3, 3);
@@ -260,7 +263,7 @@ margin-left: 25px;
 cursor: pointer;
 }
 .checkouts{
-  margin-left: 45%;
+  margin-left: 42%;
   padding: 10px 40px;
   border: none;
   font-size: 18px;
@@ -322,6 +325,9 @@ padding-bottom: 5px;
 .newsletter .formss a{
   text-decoration: none;
   color: #fff;
+}
+.form_container{
+  margin-bottom: 30%;
 }
 .form_container h1{
   text-align: center;

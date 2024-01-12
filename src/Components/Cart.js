@@ -55,7 +55,7 @@ const Cart = ({ cartItem, setCartItem }) => {
             <div className='cart_box' key={item.id}>
               <div className='cart_prod_container'>
                 <div className='cart_img_box'>
-                  <img src={item.Img} alt={item.Title} />
+                  <img src={item.Img} alt={item.Title}/>
                 </div>
                 <div className='cart_item_detail'>
                   <h2>{item.Title}</h2>

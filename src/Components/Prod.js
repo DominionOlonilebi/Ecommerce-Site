@@ -1,6 +1,6 @@
 import React from 'react'
 import Detail from './Proddetails'
-import { Container } from 'react-bootstrap'
+import { Col, Container } from 'react-bootstrap'
 
 
 const Prod = ({addtocart} ) => {
@@ -17,9 +17,9 @@ const Prod = ({addtocart} ) => {
             return(
                 <>
                 <div className='box' key={curElm.id}>
-                    <div className='img-box'>
-                    <img src={curElm.Img} alt={curElm.Title} width={260} height={220}/>
-                    </div>
+                    <Col sm={12}>
+                    <img src={curElm.Img} alt={curElm.Title} className='img-fluid'/>
+                    </Col>
 
                 <div className='detail'>
                     <h5>{curElm.Name} </h5>
