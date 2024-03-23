@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import PayPalBtns from './PayPalBtns';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import PayPalBtns from "./PayPalBtns";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Cart = ({ cartItem, setCartItem }) => {
   // Qty increase
@@ -43,54 +44,58 @@ const Cart = ({ cartItem, setCartItem }) => {
     <>
       {cartItem.length === 0 && (
         <>
-          <h4 className='null'>Cart Is Empty. Please select a product</h4>
-          <Link to='/prod'>
-            <button className='nowshop'>Shop Now</button>
-          </Link>
+          <Container style={{ textAlign: "center" }}>
+            <h4 className="null">Cart Is Empty. Please select a product</h4>
+            <Link to="/prod">
+              <button className="nowshop">Shop Now</button>
+            </Link>
+          </Container>
         </>
       )}
-      <div className='cart_container'>
-        <div className='cart_prod'>
+      <Container className="cart_container">
+        <div className="cart_prod ">
           {cartItem.map((item) => (
-            <div className='cart_box' key={item.id}>
-              <div className='cart_prod_container'>
-                <div className='cart_img_box'>
-                  <img src={item.Img} alt={item.Title}/>
+            <div className="cart_box" key={item.id}>
+              <Row className="d-flex justify-content-center cart_prod_container">
+                <div className="col-3">
+                  <img src={item.Img} alt={item.Title} className="img-fluid" />
                 </div>
-                <div className='cart_item_detail'>
+                <div className="col-4 cart_item_detail">
                   <h2>{item.Title}</h2>
                   <h3>Price: ${item.Price}</h3>
                   <button
-                    className='qty_decrease'
+                    className="qty_decrease"
                     onClick={() => decrease(item)}
                   >
                     -
                   </button>
-                  <input type='text' value={item.quantity} readOnly />
+                  <input type="text" value={item.quantity} readOnly />
                   <button
-                    className='qty_increase'
+                    className="qty_increase"
                     onClick={() => increase(item)}
                   >
                     +
                   </button>
-                  <h3>Sub Total: ${item.Price * item.quantity}</h3>
+                  <h3 className="sub_total">
+                    Sub Total: ${item.Price * item.quantity}
+                  </h3>
                 </div>
-                <button
-                  className='remove_cart'
-                  onClick={() => remove(item)}
-                >
+                <button className="remove_cart" onClick={() => remove(item)}>
                   X
                 </button>
-              </div>
+              </Row>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
 
-      <>
-        <p className='cart_total_price'>Total: ${totalPrice}</p>
+      <Container
+        style={{ textAlign: "center" }}
+        className="cart_total_container"
+      >
+        <div className=" cart_total_price">Total: ${totalPrice}</div>
         <button
-          className='checkouts'
+          className=" checkouts"
           onClick={() => {
             if (cartItem.length) {
               setIsCheckout(true);
@@ -99,10 +104,9 @@ const Cart = ({ cartItem, setCartItem }) => {
         >
           Checkout {`${cartItem.length}`}
         </button>
-        
-      </>
-      <div className='check'>
-      {isCheckout && <PayPalBtns total={totalPrice} item={cartItem} />}
+      </Container>
+      <div className="check">
+        {isCheckout && <PayPalBtns total={totalPrice} item={cartItem} />}
       </div>
     </>
   );
